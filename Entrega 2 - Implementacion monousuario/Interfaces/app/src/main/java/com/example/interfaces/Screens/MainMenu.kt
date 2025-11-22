@@ -134,7 +134,7 @@ fun MainMenu(navController: NavHostController, name: String? = "TemplateUser", i
     }
 
 
-
+    //para el modo oscuro
     val sensorListener = remember {
         object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent?) {
@@ -159,7 +159,7 @@ fun MainMenu(navController: NavHostController, name: String? = "TemplateUser", i
     }
 
 
-
+    //
     if(AutoturnDark && ChoseAutoDark){
         buttoncolors = R.color.DarkButtons
         ScreenColor = R.color.Dark
@@ -176,7 +176,7 @@ fun MainMenu(navController: NavHostController, name: String? = "TemplateUser", i
     }
 
 
-
+    //aca esta el layout de la pagina, los botones, la estructura de las fotos y del texto
     Scaffold(
         topBar={TopAppBar(
             colors = TopAppBarDefaults.topAppBarColors(
@@ -477,4 +477,5 @@ fun MainMenu(navController: NavHostController, name: String? = "TemplateUser", i
             }
         }
     }
+
 }
