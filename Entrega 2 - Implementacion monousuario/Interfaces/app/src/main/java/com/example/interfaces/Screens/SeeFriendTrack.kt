@@ -84,7 +84,7 @@ fun SeeFriendTrack(
     var pubcolors by remember { mutableStateOf(R.color.Dark) }
     var AutoturnDark by remember { mutableStateOf(false) }
 
-
+    //esto es para cambiar a modo oscuro
     val sensorManager = remember {
         context.getSystemService(SENSOR_SERVICE) as SensorManager
     }
@@ -134,10 +134,10 @@ fun SeeFriendTrack(
             sensorManager.unregisterListener(sensorListener)
         }
     }
-
+    //el layout de la pantalla
     Scaffold (
         containerColor = colorResource(ScreenColor),
-        topBar={TopAppBar(
+        topBar={TopAppBar(//los botones de la parte de arribe de la pantalla
             colors = TopAppBarDefaults.topAppBarColors(
                 containerColor = colorResource(buttoncolors),
             ),
@@ -215,7 +215,7 @@ fun SeeFriendTrack(
             }
         )}
 
-    ){ paddingValues ->
+    ){ paddingValues ->//lo principal de la pantalla
         Column(modifier = Modifier.padding(paddingValues)){
             Box(
                 contentAlignment = Alignment.TopCenter
@@ -322,4 +322,5 @@ fun SeeFriendTrack(
 
     }
 }
+
 
