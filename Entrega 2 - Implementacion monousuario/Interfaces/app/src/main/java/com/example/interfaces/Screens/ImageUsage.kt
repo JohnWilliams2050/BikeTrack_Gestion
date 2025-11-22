@@ -63,6 +63,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import java.io.File
 
+//esta seccion es para agregar una foto de perfil
 @Composable
 fun imageloader(imageURi: Uri?, UriU: String, textcolors: Int){
     if(imageURi != null){
@@ -119,7 +120,7 @@ fun Images(navController: NavController, name: String? = "TemplateUser", image:S
 
 
 
-
+    //para cambiar a modo oscuro
     val sensorListener = remember {
         object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent?) {
@@ -194,7 +195,7 @@ fun Images(navController: NavController, name: String? = "TemplateUser", image:S
         }
     }
     //----------------------------------------------------------------------------------------------
-
+    //esto tiene todo el layout de la pantalla
     var ImagenUsuario by remember{mutableStateOf("")}
     if(statuspermiso.status.isGranted){
         if(image != null && image != "default") {
@@ -312,7 +313,7 @@ fun Images(navController: NavController, name: String? = "TemplateUser", image:S
         }
 
     }
-
+    //como la camara necesita permiso para usarlo, esta seccion se enfoca en manejar eso.
     else{
         if(statuspermiso.status.shouldShowRationale){
             textodescriptor="El permiso es necesario para seleccionar la imagen de perfil"
@@ -341,4 +342,5 @@ fun Images(navController: NavController, name: String? = "TemplateUser", image:S
             }
         }
     }
+
 }
