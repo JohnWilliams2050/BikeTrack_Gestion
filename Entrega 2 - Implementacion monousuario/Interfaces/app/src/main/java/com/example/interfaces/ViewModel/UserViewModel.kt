@@ -3,7 +3,7 @@ package com.example.interfaces.ViewModel
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-
+//videmodel para utenticacion, mira toca mandar errores o si se puede actualizar el correo y contrasena
 data class UserAuthState(
     val email : String = "",
     val password : String = "",
@@ -28,4 +28,5 @@ class UserAuthViewModel : ViewModel() {
     fun updatePassError(error: String) {
         _user.value = _user.value.copy(passError = error)
     }
+
 }
