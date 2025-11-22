@@ -10,7 +10,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.getValue
 import kotlinx.coroutines.flow.MutableStateFlow
-
+//el viemodel permite que ciertas funciones puedan leer la misma informacion de un solo lugar sin cambiar los datos
+//En este caso es para los usuarios de la aplicacion
 data class MyUser(val name: String = "", val age: String = "0", val id: String = "", val uri: String = "default", val mail: String = "mail")
 
 class MyUserViewModel: ViewModel(){
@@ -33,4 +34,5 @@ class MyUserViewModel: ViewModel(){
             Log.e("FirebaseAPP",error.toString())
         }
     })
+
 }
