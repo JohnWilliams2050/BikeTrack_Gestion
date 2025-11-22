@@ -1,4 +1,4 @@
-# **Proyecto "BikeTrack" Computación movil 2530**
+# **Proyecto "BikeTrack"**
 
 En este repositorio se encuentran todos los elementos de planeación, diseño e implementación para el proyecto propuesto a inicios del semestre
 
@@ -6,7 +6,7 @@ En este repositorio se encuentran todos los elementos de planeación, diseño e 
 - Tomas Alejandro Silva Correal
 - Alexander Aponte Largacha
 - Juan Guillermo Pabón Vargas
-- Diego Fernando Castrillon Cortes
-- Luis Felipe Castro Villegas
+- Derek Sarmiento
+- Sebastián Sánchez
 
 
