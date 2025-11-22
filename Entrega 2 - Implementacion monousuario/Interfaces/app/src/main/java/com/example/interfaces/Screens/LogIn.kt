@@ -66,7 +66,7 @@ fun LoginScreen(
     val firebaseAuth = FirebaseAuth.getInstance()
     val user by viewModel.user.collectAsState()
     val pasa = false
-
+    //cuando se hace login, te manda a la pantalla principal
     LaunchedEffect (Unit) {
         firebaseAuth.currentUser?.let {
             navController.navigate("${AppScreens.MainScreen.name}/defaultUser/default/default/${pasa}") {
@@ -74,7 +74,7 @@ fun LoginScreen(
             }
         }
     }
-
+    //el layout de la pantalla de login
     Scaffold(){paddingValues ->
         Column(
             verticalArrangement = Arrangement.spacedBy(5.dp, Alignment.CenterVertically),
@@ -109,7 +109,7 @@ fun LoginScreen(
                                 modifier = Modifier.fillMaxSize()
                             )
                         }
-
+                        //seccion para poner el correo
                         TextField(
                             value = user.email,
                             onValueChange = {
@@ -128,7 +128,7 @@ fun LoginScreen(
                             isError = user.emailError.isNotEmpty()
                         )
                     }
-
+                    //seccion para poner la contrasena
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(10.dp, Alignment.CenterHorizontally)
@@ -163,7 +163,7 @@ fun LoginScreen(
                             isError = user.passError.isNotEmpty()
                         )
                     }
-
+                    //Esto si no se han registrado
                     Button(
                         onClick = {
                             navController.navigate(route = "${AppScreens.Register.name}/{name}")
@@ -173,7 +173,7 @@ fun LoginScreen(
                         Text("Dont have an account yet?", color = Color.White)
                     }
 
-
+                    //para confirmar que todo este bien
                     Button(
                         onClick = {
                             login(
@@ -193,7 +193,7 @@ fun LoginScreen(
         }
     }
 }
-
+//se verifica si los datos ingresados estan bien para hacer login
 private fun login(
     email: String,
     password: String,
@@ -222,6 +222,7 @@ private fun login(
             }
     }
 }
+//verificar si estan en el formato deseado
 fun validateForm(model: UserAuthViewModel,email:String, password:String):Boolean{
     if (email.isEmpty()){ model.updateEmailError("Correo vacio")
         return false
@@ -251,4 +252,5 @@ fun see2(){
     LoginScreen(
         rememberNavController()
     )
+
 }
