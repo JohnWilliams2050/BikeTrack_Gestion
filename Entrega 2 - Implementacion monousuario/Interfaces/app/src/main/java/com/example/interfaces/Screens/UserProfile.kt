@@ -79,7 +79,7 @@ fun UserMenu(
     var pubcolors by remember { mutableStateOf(R.color.Dark) }
     var AutoturnDark by remember { mutableStateOf(false) }
 
-
+    //esto es para cambiar la pantalla a modo oscuro
     val sensorManager = remember {
         context.getSystemService(SENSOR_SERVICE) as SensorManager
     }
@@ -129,13 +129,14 @@ fun UserMenu(
             sensorManager.unregisterListener(sensorListener)
         }
     }
-
+    //tiene el layout de la pantalla del perfil de usuario
     Scaffold(
         containerColor = colorResource(ScreenColor),
         topBar={TopAppBar(
             colors = TopAppBarDefaults.topAppBarColors(
                 containerColor = colorResource(buttoncolors),
             ),
+            //para navegar a otras secciones de la aplicacion
             navigationIcon = {
                 IconButton(onClick = {
                     navController.navigate(route = "${AppScreens.MainScreen.name}/defaultUser/default/default/${dAu}")
@@ -193,7 +194,7 @@ fun UserMenu(
 
     ){
             paddingValues ->
-
+        //esto si es el contenido principal de la pantalla
         Column(
             verticalArrangement = Arrangement.spacedBy(5.dp, Alignment.Top),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -282,7 +283,7 @@ fun UserMenu(
             }
 
             Text("Recent publications", fontSize = 30.sp, fontWeight=Bold, color = colorResource(buttoncolors))
-
+            //lista de publicaciones
             val list = Array<String>(10){"Example publication"}
             LazyColumn(
                 verticalArrangement = Arrangement.spacedBy(15.dp, Alignment.CenterVertically)
@@ -304,4 +305,5 @@ fun UserMenu(
         }
     }
 }
+
 
