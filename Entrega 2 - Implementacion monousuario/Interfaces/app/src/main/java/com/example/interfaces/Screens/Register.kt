@@ -59,7 +59,7 @@ import com.example.interfaces.R
 import com.example.interfaces.ViewModel.UserAuthViewModel
 import com.google.firebase.auth.FirebaseAuth
 
-
+//pantalla para registrar un usuario
 @Composable
 fun RegisScreen(navController: NavHostController, name: String? = "User", viewModel: UserAuthViewModel = viewModel()) {
 
@@ -109,7 +109,7 @@ fun RegisScreen(navController: NavHostController, name: String? = "User", viewMo
                                 modifier = Modifier.fillMaxSize()
                             )
                         }
-
+                        //text fields para agregar informacion del usuario
                         TextField(
                             value = Name,
                             onValueChange = {Name = it
@@ -153,7 +153,7 @@ fun RegisScreen(navController: NavHostController, name: String? = "User", viewMo
                             visualTransformation = PasswordVisualTransformation()
                         )
                     }
-
+                    //moverse a la pantalla principal o mandar mensaje de error dependiendo si se pudo realizar
                     Button(
                         onClick = {
                             if (validateFormReg(viewModel, Name, pswd)) {
@@ -204,7 +204,7 @@ fun RegisPreview() {
     val navController = rememberNavController()
     RegisScreen(navController)
 }
-
+//esta funcion se asegura que el formato del correo y contrasena sean correcto
 fun validateFormReg(model: UserAuthViewModel,email:String, password:String):Boolean{
     if (email.isEmpty()){ model.updateEmailError("Correo vacio")
         return false
@@ -220,8 +220,9 @@ fun validateFormReg(model: UserAuthViewModel,email:String, password:String):Bool
     }else{model.updatePassError("")}
     return true
 }
-
+//esto es para complementar la parte de verificar si esta bien el correo. Usa una expression regular para asegurase que este en cierto formato
 private fun validEmailAdd(email: String): Boolean {
     val regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\$"
     return email.matches(regex.toRegex())
+
 }
