@@ -41,7 +41,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.interfaces.Navigation.AppScreens
 import com.example.interfaces.R
 
-
+//estructuras para commentarios y publicaciones
 data class comment(
     val User: String,
     val Comment: String,
@@ -56,7 +56,7 @@ data class publication(
     val Likes: Int,
     val Comments: List<comment>
 )
-
+//estructura de la pantalla que muestra detalles sobre la publicacion
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PostDetailScreen(
@@ -72,7 +72,7 @@ fun PostDetailScreen(
     var pubcolors by remember { mutableStateOf(R.color.Dark) }
     var AutoturnDark by remember { mutableStateOf(false) }
 
-
+    //esto es para cambiar la pantalla a modo oscuro
     val sensorManager = remember {
         context.getSystemService(SENSOR_SERVICE) as SensorManager
     }
@@ -506,6 +506,7 @@ fun CommentInput() {
         }
     }
 }
+
 
 
 
