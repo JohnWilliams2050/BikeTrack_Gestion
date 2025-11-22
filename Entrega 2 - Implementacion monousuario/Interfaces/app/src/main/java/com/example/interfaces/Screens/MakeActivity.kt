@@ -111,7 +111,7 @@ class MakeActivity : ComponentActivity(), SensorEventListener {
     val locationRequest = createLocationRequest()
     lateinit var locationCallback : LocationCallback
 
-
+    //para empezar a actualizar tu localizacion
     fun startLocationUpdates(){
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
             == PackageManager.PERMISSION_GRANTED){
@@ -134,11 +134,12 @@ class MakeActivity : ComponentActivity(), SensorEventListener {
             }
         }
     )
-
+    //para parar actualizaciones de localizacion
     fun stopLocationUpdates(){
         locationClient.removeLocationUpdates(locationCallback)
     }
     val locationViewModel = LocationViewModel()
+    //Esto mas otro settings de sensores son para mostrar datos en el mapa para el usuario
     var currentAzimuth: Float
         get() = azimuth
         set(value) { azimuth = value }
@@ -240,6 +241,7 @@ class MakeActivity : ComponentActivity(), SensorEventListener {
                 sensorManager.unregisterListener(humsensorListener)
             }
         }
+        //ya se empiza a hacer el layout de la pantalla
         Box(modifier = Modifier.fillMaxSize()){
 
             if(active){
@@ -294,6 +296,7 @@ class MakeActivity : ComponentActivity(), SensorEventListener {
         }
 
     }
+    //esto es mas setup para la actualizacion de la localizacion
     fun createLocationCallback(viewModel: LocationViewModel) : LocationCallback {
         val callback = object : LocationCallback(){
             override fun onLocationResult(result: LocationResult) {
@@ -322,6 +325,7 @@ class MakeActivity : ComponentActivity(), SensorEventListener {
             Text(value,  fontSize = 25.sp)
         }
     }
+    //esto es la pantalla del mapa y muestra marcadores y rutas y avisos
     @Composable
     fun OsmDroidMap(viewModel: LocationViewModel, modifier: Modifier = Modifier, alertCoords: List<GeoPoint>) {
         val context = LocalContext.current
@@ -394,6 +398,7 @@ class MakeActivity : ComponentActivity(), SensorEventListener {
             }
         )
     }
+    //esto es para la brujula que es uno de los sensores del celular
     fun getDirectionLetter(degrees: Float): String {
         return when (degrees) {
             in 337.5..360.0, in 0.0..22.5 -> "N"
@@ -410,7 +415,7 @@ class MakeActivity : ComponentActivity(), SensorEventListener {
 
 
 }
-
+//aca es donde se cambia el estado de la ubicacion y se lee de aca para actualizar la localizacion en el mapa
 data class LocationState(val latitude : Double =0.0, val longitude : Double =0.0)
 class LocationViewModel : ViewModel(){
     private val _uiState = MutableStateFlow(LocationState())
@@ -419,3 +424,4 @@ class LocationViewModel : ViewModel(){
         _uiState.update { it.copy(lat, long) }
     }
 }
+
