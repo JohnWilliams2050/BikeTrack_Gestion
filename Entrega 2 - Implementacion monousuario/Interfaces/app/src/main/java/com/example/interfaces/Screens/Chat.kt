@@ -74,7 +74,7 @@ fun Chat(navController: NavHostController, name: String? = "BasicChats", im: Str
     var pubcolors by remember { mutableStateOf(R.color.Dark) }
 
 
-
+    //Para cambiar a modo oscuro dependiendo de la luz del ambiente
     val sensorManager = remember {
         context.getSystemService(SENSOR_SERVICE) as SensorManager
     }
@@ -84,7 +84,7 @@ fun Chat(navController: NavHostController, name: String? = "BasicChats", im: Str
 
 
 
-
+    //aca es donde escucha por cambios para cambiar el color de la aplicacion
     val sensorListener = remember {
         object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent?) {
@@ -124,7 +124,7 @@ fun Chat(navController: NavHostController, name: String? = "BasicChats", im: Str
             sensorManager.unregisterListener(sensorListener)
         }
     }
-
+    //tiene todo el layout, botones y funcionalidad de la pantalla
     Scaffold(
         containerColor = colorResource(ScreenColor),
         topBar = {
@@ -300,4 +300,5 @@ fun Chat(navController: NavHostController, name: String? = "BasicChats", im: Str
         }
     }
 }
+
 
