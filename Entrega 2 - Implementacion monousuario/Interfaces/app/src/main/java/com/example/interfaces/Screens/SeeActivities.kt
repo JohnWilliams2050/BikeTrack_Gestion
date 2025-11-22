@@ -44,7 +44,7 @@ fun ActivitiesScreen(
     var pubcolors by remember { mutableStateOf(R.color.Dark) }
     var AutoturnDark by remember { mutableStateOf(false) }
 
-
+    //para cambiar la pantalla a modo oscuro
     val sensorManager = remember {
         context.getSystemService(SENSOR_SERVICE) as SensorManager
     }
@@ -96,6 +96,7 @@ fun ActivitiesScreen(
     }
 
     var expanded1 by remember {mutableStateOf(false)}
+    //el layout de la pagina que tiene una parte arribe y abajo y una lista en el medio con todas las actividades
     Scaffold (
         containerColor = colorResource(ScreenColor),
         topBar={TopAppBar(
@@ -175,7 +176,7 @@ fun ActivitiesScreen(
             }
         )}
     ){paddingValues ->
-
+        //lista de actividades
         Column(
             verticalArrangement = Arrangement.spacedBy(5.dp, Alignment.CenterVertically),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -271,4 +272,5 @@ fun ActivitiesScreen(
 
 
 }
+
 
